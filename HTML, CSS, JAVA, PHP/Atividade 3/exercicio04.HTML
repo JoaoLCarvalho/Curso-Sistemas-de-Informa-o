@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regressiva</title>
+</head>
+
+<body>
+    <h1>Contagem Regressiva</h1>
+    Digite um número: <br>
+    <input id="n1" type="number"><br><br>
+    <button onclick="reg()">Contagem regressiva</button>
+    <p id="resultado"></p>
+
+    <script>
+        function reg() {
+            let numero = parseInt(document.getElementById("n1").value)
+            if (isNaN(numero) || numero <= 0) {
+                document.getElementById("resultado").innerText = "Número invalido."
+                return;
+            }
+
+            const intervalo = setInterval(function () {
+                document.getElementById("resultado").innerText = numero;
+
+                if (numero <= 0) {
+                    clearInterval(intervalo);
+                    document.getElementById("resultado").innerText = "Contagem encerrada.";
+                } else {
+                    numero--;
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
