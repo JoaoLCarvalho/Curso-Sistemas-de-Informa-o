@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="calco.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Completa</title>
+</head>
+
+<body>
+    <div class="tras">
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <p id = "resultad"></p>
+            <table>
+                <tr>
+                    <td><button class = "b" onclick="clean()">C</button></td>
+                    <td><button class = "b" onclick="back()">⌫</button></td>
+                    <td><button class = "b" onclick="insert('/')">/</button></td>
+                    <td><button class = "b" onclick="insert('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button class = "b" onclick="insert('7')">7</button></td>
+                    <td><button class = "b" onclick="insert('8')">8</button></td>
+                    <td><button class = "b" onclick="insert('9')">9</button></td>
+                    <td><button class = "b" onclick="insert('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button class = "b" onclick="insert('4')">4</button></td>
+                    <td><button class = "b" onclick="insert('5')">5</button></td>
+                    <td><button class = "b" onclick="insert('6')">6</button></td>
+                    <td><button class = "b" onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button class = "b" onclick="insert('1')">1</button></td>
+                    <td><button class = "b" onclick="insert('2')">2</button></td>
+                    <td><button class = "b" onclick="insert('3')">3</button></td>
+                    <td rowspan="2"><button class = "b" style="height: 106px;" onclick="calc()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class = "b" style="width: 106px"  onclick="insert(0)">0</button></td>
+                    <td><button class = "b" onclick="insert('.')">.</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        function insert(num) {
+            var numero = document.getElementById('resultad').innerHTML;
+            document.getElementById('resultad').innerHTML = numero + num;
+        }
+
+        function clean() {
+            document.getElementById('resultad').innerHTML = '';
+        }
+
+        function back() {
+            var resultad = document.getElementById('resultad').innerHTML;
+            document.getElementById('resultad').innerHTML = resultad.substring(0, resultad.length -1);
+        }
+
+        function calc() {
+            var resultad = document.getElementById('resultad').innerHTML;
+            if(resultad)
+            {
+                document.getElementById('resultad').innerHTML = eval(resultad)
+            } 
+            else
+            {
+                document.getElementById('resultad').innerHTML = "Não ha cálculo!"
+            }
+        }
+    </script>
+  
+</body>
+
+</html>
